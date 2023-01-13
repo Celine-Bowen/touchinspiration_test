@@ -1,0 +1,8 @@
+nav {
+    background-color: #fff;
+    color: orange;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+  }
