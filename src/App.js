@@ -3,19 +3,12 @@ import "./App.css";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  withRouter,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 
-import AllUsers from "./pages/AllUsers";
+import Users from "./pages/Users";
 import EditUser from "./pages/EditUser";
-
-// import UserContainer from './components/UserContainer';
 
 const App = () => {
   return (
@@ -24,7 +17,7 @@ const App = () => {
         <div className="App">
           <Navbar />
           <Switch>
-            <Route exact path="/" component={AllUsers} />
+            <Route exact path="/" component={Users} />
             <Route exact path="/edituser/:id" component={EditUser} />
           </Switch>
         </div>
