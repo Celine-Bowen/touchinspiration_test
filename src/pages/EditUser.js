@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
 
 import TextField from "@material-ui/core/TextField";
 
@@ -12,6 +11,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 import styled from "styled-components";
 
+// TODO : FIX EDIT OF USER
 const EditUser = ({ user }) => {
   const [state, setState] = useState({
     name: "",
@@ -44,22 +44,8 @@ const EditUser = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(updateUser(state));
+    dispatch(updateUser(state, id));
     history.push("/");
-  };
-
-  const loadUser = () => {
-    axios
-      .get(`https://touchinspiration-0ada.restdb.io/rest/sample/${id}`)
-      .then((res) => {
-        const userData = res.data.id;
-        // setUserState(userData);
-        console.log(userData);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-    // dispatch(fetchUser(id));
   };
 
   const CustomButton = styled.button`

@@ -42,7 +42,7 @@ const useStyles = makeStyles({
   },
 });
 
-const AllUsers = ({ userData, fetchUsers }) => {
+const Users = ({ userData, fetchUsers }) => {
   const classes = useStyles();
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const AllUsers = ({ userData, fetchUsers }) => {
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell align="right">#</StyledTableCell>
+                <StyledTableCell align="right">Id</StyledTableCell>
                 <StyledTableCell align="right">Name</StyledTableCell>
                 <StyledTableCell align="right">Occupation</StyledTableCell>
                 <StyledTableCell align="right">Email</StyledTableCell>
@@ -102,8 +102,8 @@ const mapaStateToProps = (state) => {
 const mapaDispatchToProps = (dispatch) => {
   return {
     fetchUsers: () => dispatch(fetchUsers()),
-    updateUser: () => dispatch(updateUser()),
+    // updateUser: () => dispatch(updateUser()),
   };
 };
 
-export default connect(mapaStateToProps, mapaDispatchToProps)(AllUsers);
+export default connect(mapaStateToProps, mapaDispatchToProps)(Users);

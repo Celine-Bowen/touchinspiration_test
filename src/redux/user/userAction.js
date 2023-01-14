@@ -80,7 +80,7 @@ export const fetchUser = (id) => {
 export const updateUser = (user, id) => {
   return (dispatch) => {
     axios
-      .patch(`URI/${id}`, user, CONFIG)
+      .patch(`${URI}/${id}`, user, CONFIG)
       .then((response) => {
         console.log("response>>>", response);
         dispatch(userUpdateById(response.data));
