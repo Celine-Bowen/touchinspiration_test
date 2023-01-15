@@ -55,7 +55,7 @@ const Users = ({ userData, fetchUsers }) => {
     setLoading(true);
     fetchUsers();
     updateUser();
-  }, []);
+  }, [fetchUsers]);
 
   useEffect(() => {
     if (userData.users.length > 0) {
