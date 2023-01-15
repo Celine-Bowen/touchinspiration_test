@@ -66,7 +66,7 @@ export const fetchUsers = () => {
 export const fetchUser = (id) => {
   return (dispatch) => {
     axios
-      .get(`URI/${id}`, CONFIG)
+      .get(`${URI}/${id}`, CONFIG)
       .then((response) => {
         console.log("response>>>", response);
         dispatch(fetchUserById(response.data));
