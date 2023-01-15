@@ -54,7 +54,6 @@ const Users = ({ userData, fetchUsers }) => {
   useEffect(() => {
     setLoading(true);
     fetchUsers();
-    updateUser();
   }, [fetchUsers]);
 
   useEffect(() => {
