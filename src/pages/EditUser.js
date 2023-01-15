@@ -11,7 +11,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 import styled from "styled-components";
 
-// TODO : FIX EDIT OF USER
+// FIXED EDIT OF USER
 const EditUser = ({ user }) => {
   const [state, setState] = useState({
     name: "",

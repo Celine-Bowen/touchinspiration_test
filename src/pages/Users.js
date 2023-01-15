@@ -35,10 +35,14 @@ const StyledTableRow = withStyles((theme) => ({
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 700,
+    width: "340",
+    overflowX: "auto",
   },
   card: {
-    minWidth: 27,
+    paddingRight: 17,
+    paddingLeft: 15,
+    paddingBottom: 12,
+    background: "lavender",
   },
 });
 
