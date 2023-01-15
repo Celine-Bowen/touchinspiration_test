@@ -35,6 +35,7 @@ const UserReducer = (state = initialState, action) => {
     case UPDATE_USER:
       return {
         ...state,
+        user: action.payload,
         loading: false,
       };
     case FETCH_USER:

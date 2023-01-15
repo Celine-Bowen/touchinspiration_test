@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { fetchUsers, updateUser } from "../redux";
 
@@ -12,6 +12,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Card from "@material-ui/core/Card";
 import EditIcon from "@material-ui/icons/Edit";
+import { CircularProgress } from "@material-ui/core";
 
 import { Link } from "react-router-dom";
 
@@ -48,15 +49,26 @@ const useStyles = makeStyles({
 
 const Users = ({ userData, fetchUsers }) => {
   const classes = useStyles();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetchUsers();
     updateUser();
   }, []);
+
+  useEffect(() => {
+    if (userData.users.length > 0) {
+      setLoading(false);
+    }
+  }, [userData]);
+
   return (
     <div className="container">
       <Card className={classes.card}>
         <h3>Users</h3>
+        {loading && <CircularProgress color="secondary" />}
+
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
@@ -106,7 +118,6 @@ const mapaStateToProps = (state) => {
 const mapaDispatchToProps = (dispatch) => {
   return {
     fetchUsers: () => dispatch(fetchUsers()),
-    // updateUser: () => dispatch(updateUser()),
   };
 };
 
